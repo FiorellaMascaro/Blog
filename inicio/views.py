@@ -15,8 +15,14 @@ def inicio (request):
 
     return render(request, r'inicio\inicio.html', datos)
 
-def crear_viaje(request, ciudad, costo):
+# def crear_viaje(request, ciudad, costo):
     
-    viaje = Viaje(ciudad=ciudad, costo=costo) 
-    viaje.save()
-    return render(request, r'inicio\viaje_creado.html', {})
+#     viaje = Viaje(ciudad=ciudad, costo=costo) 
+#     viaje.save()
+#     return render(request, r'inicio\viaje_creado.html', {})
+
+def crear_viaje(request):
+    
+    # viaje = Viaje(ciudad=ciudad, costo=costo) 
+    # viaje.save()
+    return render(request, r'inicio\crear_viaje.html', {})
