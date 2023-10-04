@@ -6,11 +6,13 @@
 
 {% block main %}
 
-<form action="">
+<form action="" method="post">
+    {% csrf_token %}
+    {% comment %} <p>Viaje: <input type="text" name="ciudad" /></p>
+    <p>Costo: <input type="number" name="costo" /></p> {% endcomment %}
 
-    <p>Viaje: <input type="text" /></p>
-    <p>Costo: <input type="text" /></p>
-    <p>Evento: <input type="text" /></p>
+    {{formulario}}
+
     <input type="submit" value="crear" />
 
 </form>

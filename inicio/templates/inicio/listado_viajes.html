@@ -1,0 +1,17 @@
+{% extends "compartidos/base.html" %}
+{% block head %}<title>Ciudades!</title>{% endblock head %}
+{% block h1_header %} VIAJES! {% endblock h1_header %}
+{% block main %}
+
+<form action="">
+    {{formulario}}
+    <input type="submit" value="Buscar" />
+</form>
+
+<ul>
+    {% for ciudad in viajes_encontrados %}
+        <li>{{ciudad}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock main %}
