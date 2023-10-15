@@ -1,0 +1,14 @@
+{% extends "compartidos/base.html" %} 
+{% block head %}<title>Crear tips</title>
+{% endblock head %}
+{% block h1_header %}Crear tips{% endblock h1_header %}
+{% block main %}
+
+<form action={% url "create_tips" %} method="post">
+    {% csrf_token %}
+    <table> 
+        {{formulario}}
+    </table>
+    <input type="submit" value="create_tips" />
+</form>
+{% endblock main %}

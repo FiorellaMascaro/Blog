@@ -1,0 +1,21 @@
+{% extends "compartidos/base.html" %} 
+{% block head %}<title>Editar clave</title>{% endblock head %}
+{% block h1_header %}Editar clave{% endblock h1_header %}
+{% block main %}
+
+<form action="{% url "editar_pass" %}" method="post">
+    {% csrf_token %}
+    <table> 
+        {{formulario}} 
+    </table>
+    <input type="submit" value="Confirm" />
+</form>
+
+{% endblock main %}
+
+
+
+
+
+
+

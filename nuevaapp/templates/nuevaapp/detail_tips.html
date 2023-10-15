@@ -1,0 +1,15 @@
+{% extends "compartidos/base.html" %}
+{% block head %}<title>Detalles del tip!</title>{% endblock head %}
+
+{% block h1_header %}
+Detalles del tip numero: {{id_viaje}}
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Pais:{{tips.pais}}</li>
+    <li>Actividad:{{tips.actividad}}</li>
+    <li>Descripcion:{{tips.descripcion}}</li>
+    <li>Fecha:{{tips.fecha}}</li>
+</ul>
+{% endblock main %}

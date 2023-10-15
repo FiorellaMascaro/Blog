@@ -1,17 +1,24 @@
-{% extends "compartidos/base.html" %}
-{% block head %}<title>Ciudades!</title>{% endblock head %}
+{% extends "compartidos/base.html" %} {% block head %} <title>Ciudades!</title> {% endblock head %}
 {% block h1_header %} VIAJES! {% endblock h1_header %}
 {% block main %}
 
+<a class="navbar-brand" href={% url "crear_viaje" %} >Crear un viaje</a>
 <form action="">
     {{formulario}}
     <input type="submit" value="Buscar" />
 </form>
 
+{% if viajes_encontrados %}
 <ul>
     {% for ciudad in viajes_encontrados %}
-        <li>{{ciudad}}</li>
+        <li>
+        <a href={% url "detalle_viaje" ciudad.id %}>Ver detalles</a> | <a href={% url "editar_viaje" ciudad.id %}>Editar</a> | <a href={% url "eliminar_viaje" ciudad.id %}>Borrar</a>
+        
+        </li>
     {% endfor %}
 </ul>
 
+{% else %}
+<p>No existen viajes a ese destino, esperamos que puedas crear uno pronto! </p>
+{% endif %}
 {% endblock main %}

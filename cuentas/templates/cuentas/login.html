@@ -1,0 +1,15 @@
+{% extends "compartidos/base.html" %} 
+{% block head %}<title>login</title>
+{% endblock head %}
+{% block h1_header %}login{% endblock h1_header %}
+{% block main %}
+
+<form action="{% url "login" %}" method="post">
+    {% csrf_token %}
+    <table> 
+        {{formulario}} 
+    </table>
+    <input type="submit" value="Iniciar sesion" />
+</form>
+
+{% endblock main %}

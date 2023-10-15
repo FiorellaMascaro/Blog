@@ -1,0 +1,13 @@
+{% extends "compartidos/base.html" %}
+{% block head %}<title>Detalles de ese viajecito!</title>{% endblock head %}
+
+{% block h1_header %}
+Detalles del viaje numero {{id_viaje}}
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Titulo:{{ciudad.titulo}}</li>
+    <li>Costo:{{ciudad.costo}}</li>
+</ul>
+{% endblock main %}
