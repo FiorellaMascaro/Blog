@@ -17,7 +17,9 @@ class NuestroformulariodeEditarPerfil(UserChangeForm):
     email = forms.EmailField(label='Change email')
     first_name = forms.CharField(label='Change name', max_length= 30)
     last_name = forms.CharField(label='Change family name', max_length= 35)
+    link = forms.URLField(required=False)
+    avatar = forms.ImageField(required=False)    
         
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name']
+        fields = ['email', 'first_name', 'last_name', 'link', 'avatar']

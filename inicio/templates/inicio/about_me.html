@@ -1,0 +1,26 @@
+{% extends "compartidos/base.html" %}
+{% load static %}
+{% block head %}<title>About me</title>{% endblock head %}
+
+{% block h1_header %}
+About me in 2023
+{% endblock h1_header %}
+
+{% block main %}
+<section class="testimonials text-center bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src={% static 'assets/img/mi_foto.jpg' %} alt="[Tu Nombre]" />
+                    <h5>Fiorella Mascaro</h5>
+                    <p class="mb-0 fst-italic">
+                        "Hi everyone, everywhere! My name is Fiorella, AKA Minion or Hobbit. I enjoy traveling, and I thought a good idea for everyone to share their tips and trips with other travelers, hence this webpage. In order to travel more and work while doing so, I have started to study Python in Coderhouse, hopefully I will be learning much more soon so I will be able to go from PM in the localization word, into a QA one day in a nice company!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main %}
+

@@ -1,14 +1,13 @@
-{% extends "compartidos/base.html" %} {% block head %}<title>Borrar el Tip!</title>{% endblock head %}
-{% block h1_header %} Borrar un tip {% endblock h1_header %}
+{% extends "compartidos/base.html" %} {% block head %}<title>Delete the tip</title>{% endblock head %}
+{% block h1_header %} Delete the tip {% endblock h1_header %}
 {% block main %}
 
-<form action={% url "delete_tips" tips.id %}"" method="post">
+<form action="{% url "delete_tips" tips.id %}" method="post">
     
     {% csrf_token %}
-<p>Esta seguro que quiere eliminar el tip {{tips}}?</p>
+    <p>Are you sure you want to delete the tip {{tips}}?</p>
 
-
-    <input type="submit" value="Confirmar" />
+    <input type="submit" value="OK" />
 </form>
 
 {% endblock main %}

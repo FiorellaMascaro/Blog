@@ -1,11 +1,11 @@
-{% extends "compartidos/base.html" %} {% block head %}<title>Crear un viaje!</title>{% endblock head %}
-{% block h1_header %} Crear un viaje {% endblock h1_header %}
+{% extends "compartidos/base.html" %} {% block head %}<title>Create a trip</title>{% endblock head %}
+{% block h1_header %}Create a trip {% endblock h1_header %}
 {% block main %}
 
 <form action="" method="post">
     {% csrf_token %}
     <table> {{formulario}} </table>
-    <input type="submit" value="crear" />
+    <input type="submit" value="Create" />
 </form>
 
 {% endblock main %}

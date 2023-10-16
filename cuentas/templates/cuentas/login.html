@@ -1,7 +1,7 @@
 {% extends "compartidos/base.html" %} 
-{% block head %}<title>login</title>
+{% block head %}<title>Login</title>
 {% endblock head %}
-{% block h1_header %}login{% endblock h1_header %}
+{% block h1_header %}Login{% endblock h1_header %}
 {% block main %}
 
 <form action="{% url "login" %}" method="post">
@@ -9,7 +9,7 @@
     <table> 
         {{formulario}} 
     </table>
-    <input type="submit" value="Iniciar sesion" />
+    <input type="submit" value="Login" />
 </form>
 
 {% endblock main %}

@@ -1,25 +1,24 @@
-{% extends "compartidos/base.html" %} {% block head %} <title>Lista de Tips!</title> {% endblock head %}
-{% block h1_header %} Tips para tu viaje {% endblock h1_header %}
+{% extends "compartidos/base.html" %} 
+{% block head %} <title>Lists of Tips!</title> {% endblock head %}
+{% block h1_header %} Tips for your next trip {% endblock h1_header %}
 {% block main %}
 
-<a class="navbar-brand" href={% url "create_tips" %} >Crear un tip</a>
+<a class="navbar-brand" href={% url "create_tips" %} >Create a tip</a>
 
 <form action="">
-    {{formulario}}
-    <input type="submit" value="Buscar" />
+    <input type = "text" name='pais' placeholder='Add the country'>
+    <input type="submit" value="Search" />
 </form>
 
 {% if list_tips %}
 <ul>
     {% for tips in list_tips %}
         <li>
-        <a href={% url "detail_tips" tips.id %}>Detalles</a> | <a href={% url "update_tips" tips.id %}>Actualizar</a> | <a href={% url "delete_tips" tips.id %}>Borrar</a>
-        
+        <a href={% url "detail_tips" tips.id %}>{{tips.pais}} | {{tips.actividad}}</a> | <a href={% url "update_tips" tips.id %}>Update</a> | <a href={% url "delete_tips" tips.id %}>Delete</a>
         </li>
     {% endfor %}
 </ul>
-
 {% else %}
-<p>No existen tips para ese lugar. </p>
+<p>No tips for this place have been found. </p>
 {% endif %}
 {% endblock main %}

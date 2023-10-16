@@ -1,8 +1,9 @@
-{% extends "compartidos/base.html" %} {% block head %} <title>Ciudades!</title> {% endblock head %}
-{% block h1_header %} VIAJES! {% endblock h1_header %}
+{% extends "compartidos/base.html" %} {% block head %} <title>Trips</title> 
+{% endblock head %}
+{% block h1_header %} Trips {% endblock h1_header %}
 {% block main %}
 
-<a class="navbar-brand" href={% url "crear_viaje" %} >Crear un viaje</a>
+<a class="navbar-brand" href={% url "crear_viaje" %} >Create a trip</a>
 <form action="">
     {{formulario}}
     <input type="submit" value="Buscar" />
@@ -10,15 +11,15 @@
 
 {% if viajes_encontrados %}
 <ul>
-    {% for ciudad in viajes_encontrados %}
+    {% for viaje in viajes_encontrados %}
         <li>
-        <a href={% url "detalle_viaje" ciudad.id %}>Ver detalles</a> | <a href={% url "editar_viaje" ciudad.id %}>Editar</a> | <a href={% url "eliminar_viaje" ciudad.id %}>Borrar</a>
+        <a href={% url "detalle_viaje" viaje.id %}>{{viaje.ciudad}}</a> | <a href={% url "editar_viaje" viaje.id %}>Edit</a> | <a href={% url "eliminar_viaje" viaje.id %}>Delete</a>
         
         </li>
     {% endfor %}
 </ul>
 
 {% else %}
-<p>No existen viajes a ese destino, esperamos que puedas crear uno pronto! </p>
+<p>There are no trips for this place created, please feel free to create one! </p>
 {% endif %}
 {% endblock main %}

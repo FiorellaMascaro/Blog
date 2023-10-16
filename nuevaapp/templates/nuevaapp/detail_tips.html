@@ -1,15 +1,26 @@
 {% extends "compartidos/base.html" %}
-{% block head %}<title>Detalles del tip!</title>{% endblock head %}
-
+{% block head %}<title>Tips details</title>{% endblock head %}
 {% block h1_header %}
-Detalles del tip numero: {{id_viaje}}
-{% endblock h1_header %}
+Details from tip # {{tips.id}} {% endblock h1_header %} 
 
 {% block main %}
 <ul>
-    <li>Pais:{{tips.pais}}</li>
-    <li>Actividad:{{tips.actividad}}</li>
-    <li>Descripcion:{{tips.descripcion}}</li>
-    <li>Fecha:{{tips.fecha}}</li>
+    <li>City: {{tips.pais}}</li>
+    <li>Activity: {{tips.actividad}}</li>
+    <li>Description: {{tips.descripcion | safe}}</li>
 </ul>
+
+<form action="{% url "update_tips" tips.id %}" method="post">
+    
+    {% csrf_token %}
+    <p>Do you need to update this {{tips}}?</p>
+
+    <input type="submit" value="OK" />
+</form>
+
 {% endblock main %}
+
+
+
+
+

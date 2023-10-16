@@ -1,6 +1,23 @@
 {% extends "compartidos/base.html" %}
-{% block head %}<title>Cerrar sesion</title>
+{% load static %}
+{% block head %}<title>Logout</title>
 {% endblock head %}
-{% block h1_header %}Se sesion se cerro correctamente{% endblock h1_header %}
+{% block h1_header %}See you soon!{% endblock h1_header %}
+
 {% block main %}
+<section class="testimonials text-center bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                    <img class="img-fluid rounded-circle mb-3" src={% static 'assets/img/Quote_foto.jpg' %} alt="[Tu Nombre]" />
+                    <h5>Please remeber:</h5>
+                    <p class="mb-0 fst-italic">
+                        "Not all those who wander are lost"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock main %}

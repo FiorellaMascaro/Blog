@@ -1,9 +1,12 @@
+# from typing import Any
+# from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from nuevaapp.models import tips
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class tipsCreateView(CreateView):
     model = tips
@@ -11,12 +14,12 @@ class tipsCreateView(CreateView):
     fields = ['pais', 'actividad', 'descripcion', 'fecha']
     success_url = reverse_lazy('tips')
 
-class tipsDeleteView(DeleteView):
+class tipsDeleteView(LoginRequiredMixin, DeleteView):
     model = tips
     template_name = "nuevaapp/delete_tips.html"
     success_url = reverse_lazy('tips')
     
-class tipsUpdateView(UpdateView):
+class tipsUpdateView(LoginRequiredMixin, UpdateView):
     model = tips
     template_name = "nuevaapp/update_tips.html"
     fields = ['actividad', 'descripcion']
@@ -28,5 +31,13 @@ class tipsDetailView(DetailView):
     
 class tipsListView(ListView):
     model = tips
-    context_object_name = 'ListView'
+    context_object_name = 'list_tips'
     template_name = "nuevaapp/list_tips.html"
+    
+    def get_queryset(self):
+        pais = self.request.GET.get('pais', '')
+        if pais:
+            tips = self.model.objects.filter(pais__icontains=pais)
+        else:
+            tips = self.model.objects.all()
+        return tips
