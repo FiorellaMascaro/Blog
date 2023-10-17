@@ -11,3 +11,5 @@ class tips(models.Model):
     def __str__(self):
         return f'{self.pais} {self.actividad}'
     
+    class Meta:
+        verbose_name_plural = "Tips"

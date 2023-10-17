@@ -4,8 +4,11 @@
 
 <form action="" method="post">
     {% csrf_token %}
-    <table> {{formulario}} </table>
+    <table> 
+        {{formulario}} 
+    </table>
     <input type="submit" value="Create" />
 </form>
 
 {% endblock main %}
+

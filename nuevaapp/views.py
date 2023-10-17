@@ -7,12 +7,19 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from nuevaapp.models import tips
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import date
 
-class tipsCreateView(CreateView):
+class tipsCreateView(LoginRequiredMixin, CreateView):
     model = tips
     template_name = "nuevaapp/create_tips.html"
     fields = ['pais', 'actividad', 'descripcion', 'fecha']
-    success_url = reverse_lazy('tips')
+
+    def form_valid(self, form):
+        form.instance.fecha = date.today()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('tips')
 
 class tipsDeleteView(LoginRequiredMixin, DeleteView):
     model = tips
